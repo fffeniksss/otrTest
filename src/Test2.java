@@ -1,21 +1,18 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Test2 {
     public static void main(String[] args) {
+        List<User> users = new ArrayList<>();
         try {
             File file = new File("src/test.txt");
-            //создаем объект FileReader для объекта File
             FileReader fr = new FileReader(file);
-            //создаем BufferedReader с существующего FileReader для построчного считывания
             BufferedReader reader = new BufferedReader(fr);
-            // считаем сначала первую строку
             String line = reader.readLine();
-            List<User> users = new ArrayList<>();
             StringBuilder builder = new StringBuilder();
             builder.append(line).append("\n");
             while (line != null) {
@@ -29,7 +26,7 @@ public class Test2 {
                 } catch (Exception ignore) {
                 }
             }
-            System.out.println(users);
+            users.forEach(u -> System.out.println(u + "\n"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -63,6 +60,16 @@ public class Test2 {
             this.secondName = secondName;
             this.middleName = middleName;
             this.age = age;
+        }
+
+        @Override
+        public String toString() {
+            return "User{" +
+                    "firstName='" + firstName + '\'' +
+                    ", secondName='" + secondName + '\'' +
+                    ", middleName='" + middleName + '\'' +
+                    ", age=" + age +
+                    '}';
         }
     }
 }

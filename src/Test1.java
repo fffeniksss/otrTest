@@ -1,13 +1,6 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Test1 {
     public static void main(String[] args) {
-        int[] array = new int[]{1, 2, 0, 4, 0, 5};
+        int[] array = new int[]{1, 2, 0, 4, 0, 5, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1};
         int j = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] != 0) {
@@ -17,6 +10,8 @@ public class Test1 {
                 j++;
             }
         }
-        System.out.println(array);
+        for (int k : array) {
+            System.out.println(k);
+        }
     }
 }
